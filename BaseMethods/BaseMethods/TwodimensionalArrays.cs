@@ -11,11 +11,11 @@ namespace BaseMethods
     {
         #region 1 Задача
         //Найти минимальный элемент массива
-        public static int GetMinimumElementTwodimensionafArray(int[,] mas)
+        public static int GetMinimumElementTwodimensionalArray(int[,] mas)
         {
             if (mas == null)
             {
-                throw new ArgumentNullException("Пустой массив");
+                throw new IndexOutOfRangeException("Пустой массив");
             }
             else
             {
@@ -31,11 +31,11 @@ namespace BaseMethods
 
         #region 2 Задача
         //Найти максимальный элемент массива
-        public static int GetMaximumElementTwodimensionafArray(int[,] mas)
+        public static int GetMaximumElementTwodimensionalArray(int[,] mas)
         {
             if (mas == null)
             {
-                throw new ArgumentNullException("Пустой массив");
+                throw new IndexOutOfRangeException("Пустой массив");
             }
             else
             {
@@ -51,44 +51,58 @@ namespace BaseMethods
 
         #region 3 Задача
         //Найти индекс минимального элемента массива
-        public static int[,] GetIndexOfTheMinimumElementTwodimensionafArray(int[,] mas)
+        public static int[] GetIndexOfTheMinimumElementTwodimensionalArray(int[,] mas)
         {
             if (mas == null)
             {
-                throw new ArgumentNullException("Пустой массив");
+                throw new IndexOutOfRangeException("Пустой массив");
             }
             else
             {
-                int[,] minindex = new int[0, 0];
                 int min = mas[0, 0];
+                int[] minIndex = new int[2];
                 for (int i = 0; i < mas.GetLength(0); i++)
+                {
                     for (int j = 0; j < mas.GetLength(1); j++)
+                    {
                         if (mas[i, j] < min)
                         {
                             min = mas[i, j];
-                            //  minindex = [i, j];
+                            minIndex[0] = i;
+                            minIndex[1] = j;
                         }
-                return minindex;
+                    }
+                }
+                return minIndex;
             }
         }
         #endregion
 
         #region 4 Задача
         //Найти индекс максимального элемента массива
-        public static int GetIndexOfTheMaximumElementTwodimensionafArray(int[,] mas)
+        public static int[] GetIndexOfTheMaximumElementTwodimensionalArray(int[,] mas)
         {
             if (mas == null)
             {
-                throw new ArgumentNullException("Пустой массив");
+                throw new IndexOutOfRangeException("Пустой массив");
             }
             else
             {
-                int min = mas[0, 0];
+                int max = mas[0, 0];
+                int[] maxIndex = new int[2];
                 for (int i = 0; i < mas.GetLength(0); i++)
+                {
                     for (int j = 0; j < mas.GetLength(1); j++)
-                        if (mas[i, j] < min)
-                            min = mas[i, j];
-                return min;
+                    {
+                        if (mas[i, j] > max)
+                        {
+                            max = mas[i, j];
+                            maxIndex[0] = i;
+                            maxIndex[1] = j;
+                        }
+                    }
+                }
+                return maxIndex;
             }
         }
         #endregion

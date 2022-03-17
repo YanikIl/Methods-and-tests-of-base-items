@@ -60,8 +60,12 @@ namespace BaseMethods
         //Пользователь вводит 1 число (A). Найдите количество положительных целых чисел, квадрат которых меньше A.
         public static int SquareOfPositiveNumberLessThanSpecifiedNumber(int a)
         {
+            if(a<0)
+            {
+                throw new Exception("Введено отрицательное число");
+            }
             int k = 0;
-            for (int i = 1; i * i < a; ++i)
+            for (int i = 1; i * i < a; i++)
             {
                 k = k + 1;
             }
@@ -73,7 +77,7 @@ namespace BaseMethods
         //Пользователь вводит 1 число (A). Вывести наибольший делитель (кроме самого A) числа A.
         public static int GreatestDivisorOfNumber(int a)
         {
-            if (a > 0)
+            if (a > 1)
             {
                 int divisior = 0;
                 for (int i = a - 1; i < a; --i)

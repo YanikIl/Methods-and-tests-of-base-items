@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace BaseMethods
 {
-    // всё вроде ок
     public class TwodimensionalArrays
     {
         #region 1 Задача

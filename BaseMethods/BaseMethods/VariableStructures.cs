@@ -8,7 +8,6 @@ namespace BaseMethods
 {
     public class VariableStructures
     {
-        // вроде всё ок
         #region перегруженный метод для вывода массива (дабл)
         public static void Write(double[] arr)
         {

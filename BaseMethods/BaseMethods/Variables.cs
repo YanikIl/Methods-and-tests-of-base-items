@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace BaseMethods
 {
-    // все вроде ок
     public class Variables
     {
         #region 1 задача

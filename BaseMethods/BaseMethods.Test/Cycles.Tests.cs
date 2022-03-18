@@ -92,7 +92,7 @@ namespace BaseMethods.Test
         [TestCase(-5, -8)]
         [TestCase(-5, 9)]
         [TestCase(5, -9)]
-        public void GetSumOfNumbersDivisibleBy7_WhenArgumentsLessThanZeroAndMoreThan1000_ShouldThrowsException(int a, int b)
+        public void GetSumOfNumbersDivisibleBy7_WhenArgumentsLessThanZero_ShouldThrowsException(int a, int b)
         {
             Assert.Throws<Exception>(() => Cycles.GetSumOfNumbersDivisibleBy7(a, b));
         }
@@ -117,9 +117,40 @@ namespace BaseMethods.Test
         #endregion
 
         #region 7 Тест
+        [TestCase(4, 1, 1)]
+        [TestCase(8, 4, 4)]
+        [TestCase(10, 4, 2)]
+        public void FindingLeastCommonDivisorTest(int a, int b, int expected)
+        {
+            int actual = Cycles.FindingLeastCommonDivisor(a, b);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(0, 0)]
+        [TestCase(1, 0)]
+        [TestCase(0, -2)]
+        [TestCase(-2, -7)]
+        public void FindingLeastCommonDivisor_WhenArgumentsLessThanZero_ShouldThrowsException(int a, int b)
+        {
+            Assert.Throws<Exception>(() => Cycles.FindingLeastCommonDivisor(a, b));
+        }
         #endregion
 
         #region 8 Тест
+        [TestCase(27, 3)]
+        [TestCase(8, 2)]
+        [TestCase(1, 1)]
+        public void GetNumberByHalfDivisionTest(int a, int expected)
+        {
+            int actual = Cycles.GetNumberByHalfDivision(a);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestCase(-2)]
+        [TestCase(0)]
+        public void GetNumberByHalfDivision_WhenArgumentsLessThanZero_ShouldThrowsException(int a)
+        {
+            Assert.Throws<Exception>(() => Cycles.GetNumberByHalfDivision(a));
+        }
         #endregion
 
         #region 9 Тест
@@ -155,9 +186,11 @@ namespace BaseMethods.Test
         #endregion
 
         #region 11 Тест
+
         #endregion
 
         #region 12 Тест
+
         #endregion
     }
 }

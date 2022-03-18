@@ -154,43 +154,61 @@ namespace BaseMethods
         }
         #endregion
 
-        // Переделать
-        // для отрицательных чисел, модуль брать или как?
         #region 7 Задача 
-        //Проверить!
         //Пользователь вводит 2 числа.Найти их наибольший общий делитель используя алгоритм Евклида.
         public static int FindingLeastCommonDivisor(int a, int b)
         {
-            int remainder;
-            int result;
-            int tmp;
-            if (a <= 0 || b <= 0)
-                throw new Exception("Введено отрицательное значение или 0");
-            else
+            a = Math.Abs(a);
+
+            while (a != b)
             {
-                if (b < a)
+                if (a > b)
                 {
-                    tmp = a;
-                    a = b;
-                    b = tmp;
+                    a = a - b;
                 }
-                while (b != 0)
+                else
                 {
-                    remainder = a;
-                    a = b;
-                    b = a % remainder;
+                    b = b - a;
                 }
-                result = a;
-                return result;
             }
+            return a;
         }
         #endregion
 
-        //Сделать  
         #region 8 Задача
-        //Проверить!
         //Пользователь вводит целое положительное число, которое является кубом целого числа N.
         //Найдите число N методом половинного деления. (проверяются числа меньше половины этого числа).
+        public static int GetNumberByHalfDivision(int a)
+        {
+            if (a <= 0)
+            {
+                throw new Exception("Введено отрицательное число или 0");
+            }
+
+            int right = a;
+            int left = 0;
+            int n = 0;
+
+            if (a == 1)
+                n = 1;
+
+            while (n * n * n != a)
+            {
+                n = (right + left) / 2;
+
+                if (n * n * n < a)
+                {
+                    left = n;
+                }
+                else
+                {
+                    right = n;
+                }
+            }
+
+            return n;
+        }
+
         #endregion
 
         #region 9 Задача

@@ -38,21 +38,19 @@ namespace BaseMethods
         }
         #endregion
 
-        //можно в А раз быстрее
         #region 2 Задача
         //Пользователь вводит 1 число (A). Вывести все числа от 1 до 1000, которые делятся на A.
-        public static int[] DivisibleNumbers(int a)
+        public static int[] GetDivisibleNumbers(int a)
         {
-            if (a > 0)
+            if (a > 0 && a <= 1000)
             {
                 int[] mas = new int[1000 / a];
-                for (int i = 1; i <= 1000; i += 1)
-                    if (i % a == 0)
+                for (int i = a; i <= 1000; i += a)
                         mas[(i / a) - 1] = i;
                 return mas;
             }
             else
-                throw new Exception("Введено отрицательное число или 0");
+                throw new Exception("Введено отрицательное число или 0 или больше 1000");
         }
         #endregion
 
@@ -95,21 +93,18 @@ namespace BaseMethods
         }
         #endregion
 
-        // не работает
-        // не надо отбивать отрицательные
         #region 5 Задача
         //Пользователь вводит 2 числа (A и B). Вывести сумму всех чисел из диапазона от A до B,
         //которые делятся без остатка на 7. (Учтите, что при вводе B может оказаться меньше A).
 
-        public static int SumOfNumbersDivisibleBy7(int a, int b)
+        public static int GetSumOfNumbersDivisibleBy7(int a, int b)
         {
             if (a < 0 || b < 0)
             {
-                throw new Exception("Введено отрицательное число");
+                throw new Exception("Введено знаечние меньше 0");
             }
             else
             {
-                int sum = 0;
                 int tmp;
 
                 if (a > b)
@@ -118,12 +113,14 @@ namespace BaseMethods
                     a = b;
                     b = tmp;
                 }
-                else
+
+                int sum = 0;
+
+                for (int i = a; i <= b; i ++)
                 {
-                    for (int i = a; i <= b; ++i)
+                    if (i % 7 == 0)
                     {
-                        if (i % 7 == 0)
-                            sum += i;
+                        sum += i;
                     }
                 }
                 return sum;
@@ -138,19 +135,22 @@ namespace BaseMethods
         // Если вводит то выводит 0, ане ошибку, по другому никак
         public static int GettingFibonacciNumber(int n)
         {
-            if (n > 0)
+            if (n <= 0)
             {
-                int result;
-                if (n == 0)
-                    result = 0;
-                else if (n == 1)
-                    result = 1;
-                else
-                    result = GettingFibonacciNumber(n - 1) + GettingFibonacciNumber(n - 2);
-                return result;
+                throw new Exception("Введено отрицательное или 0");
             }
-            else
-                throw new Exception("Введено отрицательное число");
+
+            int first = 1;
+            int second = 1;
+            int tmp;
+
+            for (int i = 3; i <= n; i++)
+            {
+                tmp = first;
+                first = second;
+                second = tmp + first;
+            }
+            return second;
         }
         #endregion
 
@@ -194,33 +194,26 @@ namespace BaseMethods
         #endregion
 
         #region 9 Задача
-
-        // для отрицательных чисел отбработать
         //Пользователь вводит 1 число.Найти количество нечетных цифр этого числа.
-        public static int NumberOfOddDigitsOfThisNumber(int n)
+        public static int GetNumberOfOddDigitsOfThisNumber(int n)
         {
-            if (n >= 0)
-            {
                 int k = 0;
-                while (n > 0)
+                while (Math.Abs(n) > 0)
                 {
-                    if ((n % 10) % 2 != 0)
+                    if ((Math.Abs(n) % 10) % 2 != 0)
                         k += 1;
-                    n = n / 10;
+                    n = Math.Abs(n) / 10;
                 }
                 return k;
-            }
-            else
-                throw new Exception("Введено отрицательное число");
+        
         }
         #endregion
 
         #region 10 Задача
-
         //Пользователь вводит 1 число.Найти число, которое является зеркальным отображением последовательности цифр заданного числа,
         //например, задано число 123, вывести 321.
 
-        public static int NumberMirroring(int a)
+        public static int GetNumberMirroring(int a)
         {
             int result = 0;
             if (a < 0)

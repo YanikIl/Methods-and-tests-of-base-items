@@ -12,9 +12,9 @@ namespace BaseMethods
         //Найти минимальный элемент массива
         public static int GetMinimumElementTwodimensionalArray(int[,] mas)
         {
-            if (mas == null)
+            if (mas.Length == 0)
             {
-                throw new IndexOutOfRangeException("Пустой массив");
+                throw new ArgumentNullException("Пустой массив");
             }
             else
             {
@@ -32,9 +32,9 @@ namespace BaseMethods
         //Найти максимальный элемент массива
         public static int GetMaximumElementTwodimensionalArray(int[,] mas)
         {
-            if (mas == null)
+            if (mas.Length == 0)
             {
-                throw new IndexOutOfRangeException("Пустой массив");
+                throw new ArgumentNullException("Пустой массив");
             }
             else
             {
@@ -52,9 +52,9 @@ namespace BaseMethods
         //Найти индекс минимального элемента массива
         public static int[] GetIndexOfTheMinimumElementTwodimensionalArray(int[,] mas)
         {
-            if (mas == null)
+            if (mas.Length == 0)
             {
-                throw new IndexOutOfRangeException("Пустой массив");
+                throw new ArgumentNullException("Пустой массив");
             }
             else
             {
@@ -81,9 +81,9 @@ namespace BaseMethods
         //Найти индекс максимального элемента массива
         public static int[] GetIndexOfTheMaximumElementTwodimensionalArray(int[,] mas)
         {
-            if (mas == null)
+            if (mas.Length == 0)
             {
-                throw new IndexOutOfRangeException("Пустой массив");
+                throw new ArgumentNullException("Пустой массив");
             }
             else
             {

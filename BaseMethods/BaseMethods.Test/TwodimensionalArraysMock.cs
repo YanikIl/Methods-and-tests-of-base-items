@@ -11,7 +11,8 @@ namespace BaseMethods.Test
 		oneFlip,
 		twoFlip,
 		threeFlip,
-		empty
+		empty,
+		emptytwo
 	}
 
 
@@ -77,7 +78,7 @@ namespace BaseMethods.Test
 				
 				case TwodimensionalArraysMockType.empty:
 					return new int[,] { };
-				
+
 				default:
 					throw new Exception();
 			}

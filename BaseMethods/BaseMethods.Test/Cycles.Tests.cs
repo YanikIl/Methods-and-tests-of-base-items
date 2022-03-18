@@ -26,18 +26,19 @@ namespace BaseMethods.Test
         #region 2 Тест
         [TestCase(227, new int[] {227, 454, 681, 908 })]
         [TestCase(504, new int[] {504})]
-        public void DivisibleNumbersTest(int a, int[] expected)
+        public void GetDivisibleNumbersTest(int a, int[] expected)
         {
-            int[] actual = Cycles.DivisibleNumbers(a);
+            int[] actual = Cycles.GetDivisibleNumbers(a);
             Assert.AreEqual(expected, actual);
         }
 
         [TestCase(-7)]
         [TestCase(-3)]
         [TestCase(0)]
-        public void DivisibleNumbers_WhenArgumentsLessThanZero_ShouldThrowsException(int a)
+        [TestCase(1001)]
+        public void DivisibleNumbers_WhenArgumentsLessThanZeroAndMoreThan1000_ShouldThrowsException(int a)
         {
-            Assert.Throws<Exception>(() => Cycles.DivisibleNumbers(a));
+            Assert.Throws<Exception>(() => Cycles.GetDivisibleNumbers(a));
         }
         #endregion
 
@@ -74,16 +75,45 @@ namespace BaseMethods.Test
         [TestCase(-3)]
         [TestCase(0)]
         [TestCase(1)]
-        public void GreatestDivisorOfNumber_WhenArgumentsLessThanZero_ShouldThrowsException(int a)
+        public void GreatestDivisorOfNumber_WhenArgumentsLessThanOne_ShouldThrowsException(int a)
         {
             Assert.Throws<Exception>(() => Cycles.GreatestDivisorOfNumber(a));
         }
         #endregion
 
         #region 5 Тест
+        [TestCase(5, 7, 7)]
+        [TestCase(1, 15, 21)]
+        public void GetSumOfNumbersDivisibleBy7Test(int a, int b, int expected)
+        {
+            int actual = Cycles.GetSumOfNumbersDivisibleBy7(a, b);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestCase(-5, -8)]
+        [TestCase(-5, 9)]
+        [TestCase(5, -9)]
+        public void GetSumOfNumbersDivisibleBy7_WhenArgumentsLessThanZeroAndMoreThan1000_ShouldThrowsException(int a, int b)
+        {
+            Assert.Throws<Exception>(() => Cycles.GetSumOfNumbersDivisibleBy7(a, b));
+        }
         #endregion
 
         #region 6 Тест
+        [TestCase(3, 2)]
+        [TestCase(1, 1)]
+        [TestCase(2, 1)]
+        [TestCase(4, 3)]
+        public void GettingFibonacciNumberTest(int n, int expected)
+        {
+            int actual = Cycles.GettingFibonacciNumber(n);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestCase(-5)]
+        [TestCase(0)]
+        public void GettingFibonacciNumber_WhenArgumentsLessThanOrEqualsZero_ShouldThrowsException(int n)
+        {
+            Assert.Throws<Exception>(() => Cycles.GettingFibonacciNumber(n));
+        }
         #endregion
 
         #region 7 Тест
@@ -93,9 +123,35 @@ namespace BaseMethods.Test
         #endregion
 
         #region 9 Тест
+        [TestCase(35, 2)]
+        [TestCase(1, 1)]
+        [TestCase(0, 0)]
+        [TestCase(-4, 0)]
+        [TestCase(4, 0)]
+        public void GetNumberOfOddDigitsOfThisNumberTest(int n, int expected)
+        {
+            int actual = Cycles.GetNumberOfOddDigitsOfThisNumber(n);
+            Assert.AreEqual(expected, actual);
+        }
         #endregion
 
         #region 10 Тест
+        [TestCase(123, 321)]
+        [TestCase(12, 21)]
+        [TestCase(4, 4)]
+        [TestCase(0, 0)]
+        [TestCase(1222, 2221)]
+        public void GetNumberMirroringTest(int a, int expected)
+        {
+            int actual = Cycles.GetNumberMirroring(a);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(-7)]
+        public void DivisibleNumbers_WhenArgumentsLessThanZero_ShouldThrowsException(int a)
+        {
+            Assert.Throws<Exception>(() => Cycles.GetNumberMirroring(a));
+        }
         #endregion
 
         #region 11 Тест

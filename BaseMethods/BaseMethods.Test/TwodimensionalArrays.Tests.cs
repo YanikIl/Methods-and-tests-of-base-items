@@ -25,7 +25,7 @@ namespace BaseMethods.Test
         public void GetMinimumElementTwodimensionalArray_WhenArrayIsEmpty_ThrowException(TwodimensionalArraysMockType type)
         {
             int[,] a = TwodimensionalArraysMock.GetMock(type);
-            Assert.Throws<IndexOutOfRangeException>(() => TwodimensionalArrays.GetMinimumElementTwodimensionalArray(a));
+            Assert.Throws<ArgumentNullException>(() => TwodimensionalArrays.GetMinimumElementTwodimensionalArray(a));
         }
         #endregion
 
@@ -44,7 +44,7 @@ namespace BaseMethods.Test
         public void GetMaximumElementTwodimensionalArray_WhenArrayIsEmpty_ThrowException(TwodimensionalArraysMockType type)
         {
             int[,] a = TwodimensionalArraysMock.GetMock(type);
-            Assert.Throws<IndexOutOfRangeException>(() => TwodimensionalArrays.GetMinimumElementTwodimensionalArray(a));
+            Assert.Throws<ArgumentNullException>(() => TwodimensionalArrays.GetMinimumElementTwodimensionalArray(a));
         }
         #endregion
 
@@ -63,7 +63,7 @@ namespace BaseMethods.Test
         public void GetIndexOfTheMinimumElementTwodimensionalArray_WhenArrayIsEmpty_ThrowException(TwodimensionalArraysMockType type)
         {
             int[,] a = TwodimensionalArraysMock.GetMock(type);
-            Assert.Throws<IndexOutOfRangeException>(() => TwodimensionalArrays.GetIndexOfTheMinimumElementTwodimensionalArray(a));
+            Assert.Throws<ArgumentNullException>(() => TwodimensionalArrays.GetIndexOfTheMinimumElementTwodimensionalArray(a));
         }
         #endregion
 
@@ -82,7 +82,7 @@ namespace BaseMethods.Test
         public void GetIndexOfTheMaximumElementTwodimensionalArray_WhenArrayIsEmpty_ThrowException(TwodimensionalArraysMockType type)
         {
             int[,] a = TwodimensionalArraysMock.GetMock(type);
-            Assert.Throws<IndexOutOfRangeException>(() => TwodimensionalArrays.GetIndexOfTheMaximumElementTwodimensionalArray(a));
+            Assert.Throws<ArgumentNullException>(() => TwodimensionalArrays.GetIndexOfTheMaximumElementTwodimensionalArray(a));
         }
         #endregion
 
